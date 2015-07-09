@@ -1,0 +1,42 @@
+{
+  "name": "json-from-template",
+  "version": "0.0.1",
+  "description": "Generate random JSON from a template",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bubkoo/json-from-template.git"
+  },
+  "keywords": [
+    "generator",
+    "json",
+    "random",
+    "template",
+    "json-template"
+  ],
+  "author": [
+    {
+      "name": "bubkoo",
+      "email": "bubkoo@163.com",
+      "url": "http://bubkoo.com"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bubkoo/json-from-template/issues"
+  },
+  "homepage": "https://github.com/bubkoo/json-from-template",
+  "devDependencies": {
+    "chai": "^3.0.0",
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.11.2",
+    "grunt-mocha-test": "^0.12.7",
+    "mocha": "^2.2.5"
+  }
+}
