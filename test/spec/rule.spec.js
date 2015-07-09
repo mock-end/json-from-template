@@ -61,6 +61,7 @@ describe('./lib/rule', function () {
     });
   });
 
+
   var raw4 = 'key|1.23';
 
   it('parse("' + raw4 + '")', function () {
@@ -204,6 +205,7 @@ describe('./lib/rule', function () {
     });
   });
 
+
   var raw9 = 'key|1-99.-100';
 
   it('parse("' + raw9 + '")', function () {
@@ -220,6 +222,7 @@ describe('./lib/rule', function () {
       isFloat: true
     });
   });
+
 
   var raw10 = 'key|1-99.-';
 
@@ -238,6 +241,7 @@ describe('./lib/rule', function () {
     });
   });
 
+
   var raw11 = 'key|1-99.';
 
   it('parse("' + raw11 + '")', function () {
@@ -254,6 +258,7 @@ describe('./lib/rule', function () {
       isFloat: true
     });
   });
+
 
   var raw12 = 'key|-99.-';
 
@@ -272,6 +277,7 @@ describe('./lib/rule', function () {
     });
   });
 
+
   var raw13 = 'key|1-.-';
 
   it('parse("' + raw13 + '")', function () {
@@ -289,6 +295,7 @@ describe('./lib/rule', function () {
     });
   });
 
+
   var raw14 = 'key|-.-';
 
   it('parse("' + raw14 + '")', function () {
@@ -305,5 +312,4 @@ describe('./lib/rule', function () {
       isFloat: true
     });
   });
-
 });
