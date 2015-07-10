@@ -1,12 +1,28 @@
 'use strict';
 
 var expect = require('chai').expect;
-var should = require('chai').should(); // actually call the function
 
 describe('./lib/rule', function () {
 
   var rule = require('../../lib/rule');
 
+
+  var raw0 = '';
+
+  it('parse("' + raw0 + '")', function () {
+    expect(rule.parse(raw0, true)).to.deep.equal({
+      raw: raw0,
+      key: '',
+      step: false,
+      count: false,
+      iMin: false,
+      iMax: false,
+      dMin: false,
+      dMax: false,
+      isNegative: false,
+      isFloat: false
+    });
+  });
 
   var raw1 = 'key|1';
 
