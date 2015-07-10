@@ -4,7 +4,9 @@
 [![build:?](https://img.shields.io/travis/bubkoo/json-from-template/master.svg?style=flat-square)](https://travis-ci.org/bubkoo/json-from-template)
 [![coverage:?](https://img.shields.io/coveralls/bubkoo/json-from-template/master.svg?style=flat-square)](https://coveralls.io/r/chaijs/chai)
 
-
+[![npm:](https://img.shields.io/npm/v/json-from-template.svg?style=flat-square)](https://www.npmjs.com/packages/json-from-template)
+[![dependencies:?](https://img.shields.io/npm/dm/json-from-template.svg?style=flat-square)](https://www.npmjs.com/packages/json-from-template)
+[![devDependencies:?](https://img.shields.io/david/bubkoo/json-from-template.svg?style=flat-square)](https://david-dm.org/bubkoo/json-from-template)
 
 # random-json-from-template
 
