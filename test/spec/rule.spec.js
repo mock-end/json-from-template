@@ -11,7 +11,7 @@ describe('./lib/rule', function () {
   var raw1 = 'key|1';
 
   it('parse("' + raw1 + '")', function () {
-    expect(rule.parse(raw1)).to.deep.equal({
+    expect(rule.parse(raw1, true)).to.deep.equal({
       raw: raw1,
       key: 'key',
       step: false,
@@ -26,10 +26,30 @@ describe('./lib/rule', function () {
   });
 
 
+  // test cache
+  var raw1_1 = 'key|1';
+
+  it('parse("' + raw1_1 + '")', function () {
+    expect(rule.parse(raw1_1)).to.deep.equal({
+      raw: raw1_1,
+      key: 'key',
+      step: false,
+      count: 1,
+      iMin: false,
+      iMax: false,
+      dMin: false,
+      dMax: false,
+      isNegative: false,
+      isFloat: false
+    });
+  });
+
+
+
   var raw2 = 'key|+1';
 
   it('parse("' + raw2 + '")', function () {
-    expect(rule.parse(raw2)).to.deep.equal({
+    expect(rule.parse(raw2, true)).to.deep.equal({
       raw: raw2,
       key: 'key',
       step: 1,
@@ -47,7 +67,7 @@ describe('./lib/rule', function () {
   var raw3 = 'key|-1';
 
   it('parse("' + raw3 + '")', function () {
-    expect(rule.parse(raw3)).to.deep.equal({
+    expect(rule.parse(raw3, true)).to.deep.equal({
       raw: raw3,
       key: 'key',
       step: -1,
@@ -65,7 +85,7 @@ describe('./lib/rule', function () {
   var raw4 = 'key|1.23';
 
   it('parse("' + raw4 + '")', function () {
-    expect(rule.parse(raw4)).to.deep.equal({
+    expect(rule.parse(raw4, true)).to.deep.equal({
       raw: raw4,
       key: 'key',
       step: false,
@@ -83,7 +103,7 @@ describe('./lib/rule', function () {
   var raw4_1 = 'key|.23';
 
   it('parse("' + raw4_1 + '")', function () {
-    expect(rule.parse(raw4_1)).to.deep.equal({
+    expect(rule.parse(raw4_1, true)).to.deep.equal({
       raw: raw4_1,
       key: 'key',
       step: false,
@@ -101,7 +121,7 @@ describe('./lib/rule', function () {
   var raw4_2 = 'key|+.23';
 
   it('parse("' + raw4_2 + '")', function () {
-    expect(rule.parse(raw4_2)).to.deep.equal({
+    expect(rule.parse(raw4_2, true)).to.deep.equal({
       raw: raw4_2,
       key: 'key',
       step: 0.23,
@@ -119,7 +139,7 @@ describe('./lib/rule', function () {
   var raw5 = 'key|-1.23';
 
   it('parse("' + raw5 + '")', function () {
-    expect(rule.parse(raw5)).to.deep.equal({
+    expect(rule.parse(raw5, true)).to.deep.equal({
       raw: raw5,
       key: 'key',
       step: -1.23,
@@ -137,7 +157,7 @@ describe('./lib/rule', function () {
   var raw5_1 = 'key|-.23';
 
   it('parse("' + raw5_1 + '")', function () {
-    expect(rule.parse(raw5_1)).to.deep.equal({
+    expect(rule.parse(raw5_1, true)).to.deep.equal({
       raw: raw5_1,
       key: 'key',
       step: -0.23,
@@ -155,7 +175,7 @@ describe('./lib/rule', function () {
   var raw6 = 'key|1-99';
 
   it('parse("' + raw6 + '")', function () {
-    expect(rule.parse(raw6)).to.deep.equal({
+    expect(rule.parse(raw6, true)).to.deep.equal({
       raw: raw6,
       key: 'key',
       step: false,
@@ -173,7 +193,7 @@ describe('./lib/rule', function () {
   var raw7 = 'key|-1-99';
 
   it('parse("' + raw7 + '")', function () {
-    expect(rule.parse(raw7)).to.deep.equal({
+    expect(rule.parse(raw7, true)).to.deep.equal({
       raw: raw7,
       key: 'key',
       step: false,
@@ -191,7 +211,7 @@ describe('./lib/rule', function () {
   var raw8 = 'key|1-99.0-100';
 
   it('parse("' + raw8 + '")', function () {
-    expect(rule.parse(raw8)).to.deep.equal({
+    expect(rule.parse(raw8, true)).to.deep.equal({
       raw: raw8,
       key: 'key',
       step: false,
@@ -209,7 +229,7 @@ describe('./lib/rule', function () {
   var raw9 = 'key|1-99.-100';
 
   it('parse("' + raw9 + '")', function () {
-    expect(rule.parse(raw9)).to.deep.equal({
+    expect(rule.parse(raw9, true)).to.deep.equal({
       raw: raw9,
       key: 'key',
       step: false,
@@ -227,7 +247,7 @@ describe('./lib/rule', function () {
   var raw10 = 'key|1-99.-';
 
   it('parse("' + raw10 + '")', function () {
-    expect(rule.parse(raw10)).to.deep.equal({
+    expect(rule.parse(raw10, true)).to.deep.equal({
       raw: raw10,
       key: 'key',
       step: false,
@@ -245,7 +265,7 @@ describe('./lib/rule', function () {
   var raw11 = 'key|1-99.';
 
   it('parse("' + raw11 + '")', function () {
-    expect(rule.parse(raw11)).to.deep.equal({
+    expect(rule.parse(raw11, true)).to.deep.equal({
       raw: raw11,
       key: 'key',
       step: false,
@@ -263,7 +283,7 @@ describe('./lib/rule', function () {
   var raw12 = 'key|-99.-';
 
   it('parse("' + raw12 + '")', function () {
-    expect(rule.parse(raw12)).to.deep.equal({
+    expect(rule.parse(raw12, true)).to.deep.equal({
       raw: raw12,
       key: 'key',
       step: false,
@@ -281,7 +301,7 @@ describe('./lib/rule', function () {
   var raw13 = 'key|1-.-';
 
   it('parse("' + raw13 + '")', function () {
-    expect(rule.parse(raw13)).to.deep.equal({
+    expect(rule.parse(raw13, true)).to.deep.equal({
       raw: raw13,
       key: 'key',
       step: false,
@@ -299,7 +319,7 @@ describe('./lib/rule', function () {
   var raw14 = 'key|-.-';
 
   it('parse("' + raw14 + '")', function () {
-    expect(rule.parse(raw14)).to.deep.equal({
+    expect(rule.parse(raw14, true)).to.deep.equal({
       raw: raw14,
       key: 'key',
       step: false,
@@ -310,6 +330,78 @@ describe('./lib/rule', function () {
       dMax: false,
       isNegative: true,
       isFloat: true
+    });
+  });
+
+
+  var raw15 = 'key';
+
+  it('parse("' + raw15 + '")', function () {
+    expect(rule.parse(raw15, true)).to.deep.equal({
+      raw: raw15,
+      key: 'key',
+      step: false,
+      count: false,
+      iMin: false,
+      iMax: false,
+      dMin: false,
+      dMax: false,
+      isNegative: false,
+      isFloat: false
+    });
+  });
+
+
+  var raw16 = 'key|';
+
+  it('parse("' + raw16 + '")', function () {
+    expect(rule.parse(raw16, true)).to.deep.equal({
+      raw: raw16,
+      key: 'key',
+      step: false,
+      count: false,
+      iMin: false,
+      iMax: false,
+      dMin: false,
+      dMax: false,
+      isNegative: false,
+      isFloat: false
+    });
+  });
+
+
+  var raw17 = 'key|a';
+
+  it('parse("' + raw17 + '")', function () {
+    expect(rule.parse(raw17, true)).to.deep.equal({
+      raw: raw17,
+      key: 'key',
+      step: false,
+      count: false,
+      iMin: false,
+      iMax: false,
+      dMin: false,
+      dMax: false,
+      isNegative: false,
+      isFloat: false
+    });
+  });
+
+
+  var raw18 = 'key|1-';
+
+  it('parse("' + raw18 + '")', function () {
+    expect(rule.parse(raw18, true)).to.deep.equal({
+      raw: raw18,
+      key: 'key',
+      step: false,
+      count: false,
+      iMin: 1,
+      iMax: false,
+      dMin: false,
+      dMax: false,
+      isNegative: false,
+      isFloat: false
     });
   });
 });
