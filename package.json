@@ -2,7 +2,7 @@
   "name": "json-from-template",
   "version": "0.0.1",
   "description": "Generate random JSON(plain old object) from the given template",
-  "main": "index.js",
+  "main": "./lib/index.js",
   "directories": {
     "test": "test"
   },
@@ -20,7 +20,12 @@
     "template",
     "json-template"
   ],
-  "author": [
+  "author": {
+    "name": "bubkoo",
+    "email": "bubkoo@163.com",
+    "url": "http://bubkoo.com"
+  },
+  "contributors": [
     {
       "name": "bubkoo",
       "email": "bubkoo@163.com",
