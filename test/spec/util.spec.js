@@ -102,5 +102,12 @@ describe('./lib/util', function () {
 
   });
 
+
+  it('.toFixed()', function () {
+    expect(util.toFixed(0.1234, 2)).to.equal(0.12);
+    expect(util.toFixed(0.1, 2)).to.equal(0.10);
+    expect(util.toFixed(0.115, 2)).to.equal(0.12);
+    expect(util.toFixed(0.195, 2)).to.equal(0.20);
+  });
 });
 
