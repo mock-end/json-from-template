@@ -2,7 +2,7 @@
   "name": "json-from-template",
   "version": "0.0.1",
   "description": "Generate random JSON(plain old object) from the given template",
-  "main": "./lib/index.js",
+  "main": "./lib/",
   "directories": {
     "test": "test"
   },
