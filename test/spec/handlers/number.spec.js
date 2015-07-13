@@ -59,7 +59,7 @@ describe('./lib/handlers/number.handle()', function () {
       .and
       .to.be.at.most(9)
       .and
-      .to.match(/\d\.\d\d/);
+      .to.match(/\d\.\d{1,2}/);
 
   });
 
