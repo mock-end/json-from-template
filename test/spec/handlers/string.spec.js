@@ -51,7 +51,7 @@ describe('./lib/handlers/string.handle()', function () {
       .to.be.at.most(9);
     expect(ret.str2).to.equal('@int(1,9)');
     expect(ret.str3).to.equal('str-3');
-    expect(ret.str4).to.equal(4);
+    expect(ret.str4).to.equal('@4');
   });
 });
 
