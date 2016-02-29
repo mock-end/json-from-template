@@ -1,6 +1,6 @@
 {
   "name": "json-from-template",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Generate random JSON(plain old object) from the given template",
   "main": "./lib/",
   "directories": {
